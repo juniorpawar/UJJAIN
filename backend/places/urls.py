@@ -11,7 +11,11 @@ router.register(r'places', views.PlaceViewSet, basename='places')
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
-    path('api/get_place/', views.get_place, name='get_place'),  # ✅ new endpoint
+    
+    path('api/get_place/', views.get_place, name='get_place'),
+    path('api/plan/', views.plan_places, name='plan_places'),
+
+    path('api/all_places/', views.get_all_places, name='get_all_places'),
 ]
 
 if settings.DEBUG:
