@@ -20,6 +20,7 @@ L.Icon.Default.mergeOptions({
 export default function RouteMap() {
   const { state } = useLocation();
   const chosen = state?.chosen || [];
+  console.log(`Chosen places IDs: ${chosen}`);
   const [places, setPlaces] = useState([]);
   const [loading, setLoading] = useState(true);
   const [map, setMap] = useState(null);
@@ -28,7 +29,7 @@ export default function RouteMap() {
   useEffect(() => {
     const fetchPlaces = async () => {
       try {
-        const response = await fetch("http://localhost:8000/api/places/");
+        const response = await fetch(`${process.env.VITE_BACKEND_BASE_URL}/api/places/`);
         const allPlaces = await response.json();
         const selectedPlaces = allPlaces.filter((place) =>
           chosen.includes(place.id)
@@ -98,7 +99,8 @@ export default function RouteMap() {
         <h2 className="text-xl font-semibold">No places selected</h2>
         <p className="text-gray-600">Go back and choose places first.</p>
         <button
-          onClick={() => navigate(-1)} // 👈 goes back to previous page
+          type="button"
+          onClick={() => window.history.back()} // 👈 goes back to previous page
           className="inline-flex items-center rounded-xl border px-4 py-2 text-sm hover:bg-gray-50"
         >
           ← Back to plan
@@ -114,12 +116,13 @@ export default function RouteMap() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <h2 className="text-xl font-semibold">Route Map</h2>
-        <Link
-          to="/plan"
+        <button
+          type="button"
+          onClick={() => window.history.back()} // 👈 goes back to previous page
           className="inline-flex items-center rounded-xl border px-4 py-2 text-sm hover:bg-gray-50"
         >
           ← Back to plan
-        </Link>
+        </button>
       </div>
 
       <div className="h-96 rounded-2xl overflow-hidden border">

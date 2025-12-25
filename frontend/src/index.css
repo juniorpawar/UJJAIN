@@ -1,1 +1,40 @@
 @import "tailwindcss";
+
+@font-face {
+  font-family: "jaini";
+  src: local("jaini"),
+       url("/fonts/Jaini-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "istokweb";
+  src: local("istokweb"),
+       url("/fonts/IstokWeb-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "lato";
+  src: local("lato"),
+       url("/fonts/Lato-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Hide scrollbar for Chrome, Safari, and Edge */
+*::-webkit-scrollbar {
+  display: none !important;
+}
+
+/* Hide scrollbar for Firefox */
+* {
+  scrollbar-width: none !important;
+}
+
+/* Prevent accidental scrolling horizontally */
+html, body {
+  overflow-x: hidden !important;
+}

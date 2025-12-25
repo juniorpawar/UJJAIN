@@ -22,3 +22,8 @@ class PlaceSerializer(serializers.ModelSerializer):
             'latitude', 'longitude', 'open_time', 'close_time',
             'details', 'gallery'
         ]
+
+class PlaceMiniSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Place
+        fields = ['id','name', 'description', 'latitude', 'longitude', 'image', 'category']

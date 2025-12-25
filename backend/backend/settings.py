@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-p3w#cu=q1b1evwd(m408cj#a=k**)!w877!n3txdyv=toyras)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -131,7 +131,8 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",   # for Vite
-    "http://127.0.0.1:5173",   # optional, covers both cases
+    "http://192.168.1.50:5173", # optional, covers both cases
+    "http://192.168.125.211:5173"
 ]
 
 
